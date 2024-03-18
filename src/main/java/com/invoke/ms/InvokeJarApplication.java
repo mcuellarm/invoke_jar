@@ -67,17 +67,20 @@ public class InvokeJarApplication {
 	
 	public static HashMap<Integer, MsgField> testReqFieldsMsg(){
 		HashMap<Integer, MsgField> msg = new HashMap<>();
-		MsgField filed1 = new MsgField("codigoEntidad", "CONDENTI", "A", 1, (float) 10.00, "10001");
-		MsgField filed2 = new MsgField("cuenta", "CUENTA", "A", 2, (float) 15.00, "1010101010");
-		MsgField filed3 = new MsgField("divisa", "DIVISA", "A", 4, (float) 3.00, "USD");
-		MsgField filed4 = new MsgField("codigoProducto", "CODPROD", "A", 3, (float) 2.00, "A2");
-		MsgField filed5 = new MsgField("saldoDisponible", "DISPONI", "S", 5, (float) 15.2, 1.447252525);
+		MsgField field = new MsgField("codigoEntidad", "CONDENTI", "A", 1, (float) 10.00, "10001");
+		msg.put(1, field);
 		
-		msg.put(1, filed1);
-		msg.put(2, filed2);
-		msg.put(4, filed4);
-		msg.put(3, filed3);
-		msg.put(5, filed5);
+		field = new MsgField("cuenta", "CUENTA", "A", 2, (float) 15.00, "1010101010");
+		msg.put(2, field);
+		
+		field = new MsgField("divisa", "DIVISA", "A", 4, (float) 3.00, "USD");
+		msg.put(4, field);
+		
+		field = new MsgField("codigoProducto", "CODPROD", "A", 3, (float) 2.00, "A2");
+		msg.put(3, field);
+		
+		field = new MsgField("saldoDisponible", "DISPONI", "S", 5, (float) 15.2, 1.447252525);
+		msg.put(5, field);
 		
 		return msg;
 		
@@ -85,18 +88,21 @@ public class InvokeJarApplication {
 	
 	public static HashMap<Integer, MsgField> testResFieldsMsg(){
 		HashMap<Integer, MsgField> msg = new HashMap<>();
-		MsgField filed1 = new MsgField("codigoEntidad", "CONDENTI", "A", 1, (float) 10.00, "10001");
-		MsgField filed2 = new MsgField("cuenta", "CUENTA", "A", 2, (float) 15.00, "1010101010");
-		MsgField filed3 = new MsgField("divisa", "DIVISA", "A", 4, (float) 3.00, "USD");
-		MsgField filed4 = new MsgField("codigoProducto", "CODPROD", "A", 3, (float) 2.00, "A2");
-		MsgField filed5 = new MsgField("saldoDisponible", "DISPONI", "S", 5, (float) 15.2, 1.447252525);
+		MsgField field = new MsgField("codigoEntidad", "CONDENTI", "A", 1, (float) 10.00, "10001");
+		msg.put(1, field);
 		
-		msg.put(1, filed1);
-		msg.put(2, filed2);
-		msg.put(4, filed4);
-		msg.put(3, filed3);
-		msg.put(5, filed5);
-
+		field = new MsgField("cuenta", "CUENTA", "A", 2, (float) 15.00, "1010101010");
+		msg.put(2, field);
+		
+		field = new MsgField("divisa", "DIVISA", "A", 4, (float) 3.00, "USD");
+		msg.put(4, field);
+		
+		field = new MsgField("codigoProducto", "CODPROD", "A", 3, (float) 2.00, "A2");
+		msg.put(3, field);
+		
+		field = new MsgField("saldoDisponible", "DISPONI", "S", 5, (float) 15.2, 1.447252525);
+		msg.put(5, field);
+		
 		return msg;
 	}
 
