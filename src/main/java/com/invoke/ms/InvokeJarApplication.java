@@ -1,6 +1,7 @@
 package com.invoke.ms;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -50,11 +51,11 @@ public class InvokeJarApplication {
 			messageFields.put("BGMCSA1", responseFields);
 			
 			//Invocar el sendAndReceive y obtener la respuesta 
-			HashMap<String, Object> res = mqc.sendAndReceive(valpa, reqFormatName, messageFields, headerMsg, requestMsg);
+			HashMap<String, List<HashMap<String, Object>>> res = mqc.sendAndReceive(valpa, reqFormatName, messageFields, headerMsg, requestMsg);
 			
 			//Visualización de la respuesta
 			System.out.print("Response:\n");
-		    res.forEach((k,v) -> System.out.println("Key: " + k + ": Value: " + v ));
+		    res.forEach((k,v) -> {System.out.println("LISTA: " + k); v.forEach(item-> {item.forEach((key,val) ->{ System.out.println("Key: " + key + " Value: " + val);});});});
 		    
 		} catch (MQException e) {
 			e.printStackTrace();
