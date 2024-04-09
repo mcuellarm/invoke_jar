@@ -43,11 +43,18 @@ public class InvokeJarApplication {
 			HashMap<Integer, MsgField> headerFields = testHeaderFields();
 			HashMap<Integer, MsgField> requestFields = testReqFields();
 			HashMap<Integer, MsgField> responseFields = testResFields();
+			HashMap<Integer, MsgField> errorFields = testErrorFields();
+			HashMap<Integer, MsgField> noticeFields = testNoticeFields();
+			HashMap<Integer, MsgField> journalFields = testJournalFields();
+			
 			
 			HashMap<String, HashMap<Integer, MsgField>> messageFields = new HashMap<>();
 			
-			messageFields.put("header", headerFields);
+			messageFields.put("HEADER", headerFields);
 			messageFields.put("BGMCSA", requestFields);
+			messageFields.put("ERROR", errorFields);
+			messageFields.put("AVISO", noticeFields);
+			messageFields.put("JOURNAL", journalFields);
 			messageFields.put("BGMCSA1", responseFields);
 			
 			//Invocar el sendAndReceive y obtener la respuesta 
@@ -55,7 +62,7 @@ public class InvokeJarApplication {
 			
 			//Visualización de la respuesta
 			System.out.print("Response:\n");
-		    res.forEach((k,v) -> {System.out.println("LISTA: " + k); v.forEach(item-> {item.forEach((key,val) ->{ System.out.println("Key: " + key + " Value: " + val);});});});
+		    res.forEach((k,v) -> {System.out.println("ITEM: " + k); v.forEach(item-> {item.forEach((key,val) ->{ System.out.println("Key: " + key + " Value: " + val);});});});
 		    
 		} catch (MQException e) {
 			e.printStackTrace();
@@ -139,13 +146,13 @@ public class InvokeJarApplication {
 	public static HashMap<Integer, MsgField> testResFields(){
 		HashMap<Integer, MsgField> msg = new HashMap<>();
 				
-		MsgField field = new MsgField("PCCC", "CUENTA-PPAL", "A", 1, (float) 20.00, "10000000000000000001");
+		MsgField field = new MsgField("PCCC", "CUENTA-PPAL", "A", 1, (float) 20.00, "1010101");
 		msg.put(1, field);
 		
-		field = new MsgField("PSRETTO", "PPAL-SDO-RET-TOT", "N", 2, (float) 15.2, "000000000000000");
+		field = new MsgField("PSRETTO", "PPAL-SDO-RET-TOT", "N", 2, (float) 15.2, "0");
 		msg.put(2, field);
 		
-		field = new MsgField("PSSDOFI", "PPAL-SDO-FINAL", "N", 3, (float) 15.2, "000000000000000");
+		field = new MsgField("PSSDOFI", "PPAL-SDO-FINAL", "N", 3, (float) 15.2, "0");
 		msg.put(3, field);
 		
 		return msg;
